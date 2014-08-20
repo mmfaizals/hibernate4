@@ -13,5 +13,6 @@
   <property name="show_sql">true</property>
   <mapping resource="css/training/hibernate/domain/Person.hbm.xml"/>
   <mapping resource="css/training/hibernate/domain/Email.hbm.xml"/>
+  <mapping resource="css/training/hibernate/domain/Transport.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

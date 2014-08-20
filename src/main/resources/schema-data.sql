@@ -13,3 +13,28 @@ CREATE TABLE `email`(
   PRIMARY KEY (`id`),
   FOREIGN KEY (`person_id`) REFERENCES `person`(`id`)
 ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `transport`(  
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `transport_type` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `person_transport`(
+  `person_id` INT NOT NULL,
+  `transport_id` INT NOT NULL,
+  FOREIGN KEY (`person_id`) REFERENCES `person`(`id`),
+  FOREIGN KEY (`transport_id`) REFERENCES `transport`(`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+
+CREATE TABLE `country`(
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)
+  ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+ INSERT INTO country (name) VALUES
+ ('India'),('Japan');
+
+

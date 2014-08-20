@@ -7,6 +7,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Set<Email> emails;
+	private Set<Transport> transports;
 
 	public Set<Email> getEmails() {
 		return emails;
@@ -38,5 +39,13 @@ public class Person {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Set<Transport> getTransports() {
+		return transports;
+	}
+
+	public void setTransports(Set<Transport> transport) {
+		this.transports = transport;
 	}
 }
