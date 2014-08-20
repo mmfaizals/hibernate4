@@ -34,7 +34,11 @@ CREATE TABLE `country`(
   PRIMARY KEY (`id`)
   ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
 
- INSERT INTO country (name) VALUES
+ALTER TABLE `person`   
+  ADD COLUMN `country_id` INT NULL ,
+  ADD FOREIGN KEY (country_id) REFERENCES `country`(`id`);		
+
+INSERT INTO country (name) VALUES
  ('India'),('Japan');
 
 

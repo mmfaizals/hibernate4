@@ -8,6 +8,15 @@ public class Person {
 	private String lastName;
 	private Set<Email> emails;
 	private Set<Transport> transports;
+	private Country country;
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
 
 	public Set<Email> getEmails() {
 		return emails;
