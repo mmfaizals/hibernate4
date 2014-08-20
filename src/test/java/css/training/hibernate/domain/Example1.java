@@ -42,6 +42,24 @@ public class Example1 {
 		}
 	}
 
+	@Test
+	public void testAddEmail() {
+		SessionFactory factory = sessionFactory();
+		Session ses = factory.openSession();
+		ses.beginTransaction();
+		List<Person> persons = ses.createQuery(
+				"from Person where firstName='Nobita'").list();
+		Person person = persons.get(0);
+		Email email = new Email();
+		email.setAddress(person.getFirstName() + "@csscorp.com");
+		email.setPerson(person);
+		person.getEmails().add(email);
+		ses.persist(email);
+		ses.getTransaction().commit();
+		ses.close();
+		factory.close();
+	}
+
 	private static SessionFactory sessionFactory() {
 		// return new
 		// Configuration().configure().setNamingStrategy(ImprovedNamingStrategy.INSTANCE).buildSessionFactory();
