@@ -107,3 +107,18 @@ CREATE TABLE `hibernate_unique_key`(
 ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
 
 insert into hibernate_unique_key (next_hi) values (1);
+
+
+CREATE TABLE `order`(
+`id` INT NOT NULL,
+`name` VARCHAR(255),
+PRIMARY KEY (id)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `line_item`(
+`id` INT NOT NULL,
+`name` VARCHAR(255),
+`order_id` INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (order_id) REFERENCES `order`(id)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
