@@ -1,5 +1,6 @@
 package css.training.hibernate.domain;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -48,7 +49,8 @@ public class Example1 {
 		Session ses = factory.openSession();
 		ses.beginTransaction();
 		List<Person> persons = ses.createQuery(
-				"from Person where firstName='Nobita'").list();
+				"from Person where firstName='Nobita'").list(); // a record must
+																// exists
 		Person person = persons.get(0);
 		Email email = new Email();
 		email.setAddress(person.getFirstName() + "@csscorp.com");
@@ -58,6 +60,35 @@ public class Example1 {
 		ses.getTransaction().commit();
 		ses.close();
 		factory.close();
+	}
+
+	@Test
+	public void testAddEmailsCascadeSave() {
+		SessionFactory factory = sessionFactory();
+		Session ses = factory.openSession();
+		try {
+			ses.beginTransaction();
+			Person person = new Person();
+			person.setFirstName("Shizuka");
+			person.setLastName("mina");
+			person.setEmails(new HashSet<Email>());
+			Email email1 = new Email();
+			email1.setAddress(person.getFirstName() + "."
+					+ person.getLastName() + "@csscorp.com");
+			email1.setPerson(person);
+			Email email2 = new Email();
+			email2.setAddress(person.getFirstName() + "."
+					+ person.getLastName() + "@gmail.com");
+			email2.setPerson(person);
+			person.getEmails().add(email1);
+			person.getEmails().add(email2);
+			ses.persist(person);// explicitly save only person, emails saved
+								// automatically
+			ses.getTransaction().commit();
+		} finally {
+			ses.close();
+			factory.close();
+		}
 	}
 
 	private static SessionFactory sessionFactory() {
