@@ -48,3 +48,28 @@ CREATE TABLE `passport`(
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id`) REFERENCES `person`(`id`)
 ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `employee`(  
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(255),
+  `last_name` VARCHAR(255),
+  `joining_date` DATE,
+  `discriminator` VARCHAR(255),
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+
+CREATE TABLE `permanent_employee`(  
+  `id` INT NOT NULL,
+  `salary_per_month` DOUBLE,
+  `bonus` DOUBLE,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES `employee`(`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `contract_employee`(  
+  `id` INT NOT NULL,
+  `salary_per_hour` DOUBLE,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES `employee`(`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
