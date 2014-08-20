@@ -1,4 +1,4 @@
-package css.training.hibernate.domain.annotation.example;
+package css.training.hibernate.domain.annotation;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,17 +13,7 @@ import css.training.hibernate.domain.annotation.ContractEmployee;
 import css.training.hibernate.domain.annotation.Employee;
 import css.training.hibernate.domain.annotation.PermanentEmployee;
 
-/**
- * 
- * Run Tests individually , always remember to delete records from tables
- * 
- * <pre>
- * DELETE FROM employee;
- * 	DELETE FROM contract_employee;
- * 	DELETE FROM permanent_employee;
- * </pre>
- */
-public class Example07 {
+public class Example06 {
 	private static final SessionFactory factory = sessionFactory();
 
 	@AfterClass
@@ -34,7 +24,7 @@ public class Example07 {
 	}
 
 	@Test
-	public void testTablePerSubClass() throws Exception {
+	public void testSingleTablePerHierarchy() throws Exception {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
@@ -48,7 +38,7 @@ public class Example07 {
 	}
 
 	@Test
-	public void readPolymorphicTablePerSubClass() throws Exception {
+	public void readPolymorphic() throws Exception {
 		Session session = factory.getCurrentSession();
 		try {
 			session.beginTransaction();
@@ -76,23 +66,20 @@ public class Example07 {
 
 	private void insertSuperman() {
 		Session session = factory.getCurrentSession();
-		PermanentEmployee perm = new PermanentEmployee();
-		perm.setFirstName("Super");
-		perm.setLastName("man");
-		perm.setSalaryPerMonth(2.0);
-		perm.setBonus(1.0);
-		perm.setJoiningDate(new java.sql.Date(System.currentTimeMillis()));
-		session.persist(perm);
+		PermanentEmployee pt = new PermanentEmployee();
+		pt.setFirstName("Super");
+		pt.setLastName("man");
+		pt.setJoiningDate(new java.sql.Date(System.currentTimeMillis()));
+		session.persist(pt);
 	}
 
 	private void insertBatman() {
 		Session session = factory.getCurrentSession();
-		ContractEmployee contract = new ContractEmployee();
-		contract.setFirstName("Bat");
-		contract.setLastName("man");
-		contract.setSalaryPerHour(3.0);
-		contract.setJoiningDate(new java.sql.Date(System.currentTimeMillis()));
-		session.persist(contract);
+		ContractEmployee cte = new ContractEmployee();
+		cte.setFirstName("Bat");
+		cte.setLastName("man");
+		cte.setJoiningDate(new java.sql.Date(System.currentTimeMillis()));
+		session.persist(cte);
 	}
 
 	private static SessionFactory sessionFactory() {

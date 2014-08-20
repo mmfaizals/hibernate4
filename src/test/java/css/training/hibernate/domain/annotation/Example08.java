@@ -1,4 +1,4 @@
-package css.training.hibernate.domain.annotation.example;
+package css.training.hibernate.domain.annotation;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
