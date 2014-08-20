@@ -1,9 +1,20 @@
 package css.training.hibernate.domain;
 
+import java.util.Set;
+
 public class Person {
 	private Integer id;
 	private String firstName;
 	private String lastName;
+	private Set<Email> emails;
+
+	public Set<Email> getEmails() {
+		return emails;
+	}
+
+	public void setEmails(Set<Email> emails) {
+		this.emails = emails;
+	}
 
 	public Integer getId() {
 		return id;

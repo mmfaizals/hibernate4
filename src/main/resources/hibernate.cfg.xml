@@ -11,5 +11,6 @@
   <property name="hibernate.current_session_context_class">thread</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
   <mapping resource="css/training/hibernate/domain/Person.hbm.xml"/>
+  <mapping resource="css/training/hibernate/domain/Email.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>
