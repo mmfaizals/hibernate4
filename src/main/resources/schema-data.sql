@@ -73,3 +73,37 @@ CREATE TABLE `contract_employee`(
   PRIMARY KEY (`id`),
   FOREIGN KEY (`id`) REFERENCES `employee`(`id`)
 ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+/*
+ * SQL for Table per concrete class
+ * */
+
+
+drop table permanent_employee;
+drop table contract_employee;
+drop table employee;
+
+CREATE TABLE `permanent_employee`(  
+  `id` INT NOT NULL ,
+  `first_name` VARCHAR(255),
+  `last_name` VARCHAR(255),
+  `joining_date` DATE,
+  `salary_per_month` DOUBLE,
+  `bonus` DOUBLE,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `contract_employee`(  
+  `id` INT NOT NULL ,
+  `first_name` VARCHAR(255),
+  `last_name` VARCHAR(255),
+  `joining_date` DATE,
+  `salary_per_hour` DOUBLE,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `hibernate_unique_key`(
+ `next_hi` INT NULL 
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+insert into hibernate_unique_key (next_hi) values (1);
