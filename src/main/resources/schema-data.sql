@@ -42,3 +42,9 @@ INSERT INTO country (name) VALUES
  ('India'),('Japan');
 
 
+CREATE TABLE `passport`(  
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `passport_number` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`id`) REFERENCES `person`(`id`)
+) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;

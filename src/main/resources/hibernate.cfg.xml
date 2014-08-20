@@ -15,5 +15,6 @@
   <mapping resource="css/training/hibernate/domain/Email.hbm.xml"/>
   <mapping resource="css/training/hibernate/domain/Transport.hbm.xml"/>
   <mapping resource="css/training/hibernate/domain/Country.hbm.xml"/>
+  <mapping resource="css/training/hibernate/domain/Passport.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

@@ -24,5 +24,7 @@
 				class="css.training.hibernate.domain.Transport"></many-to-many>
 		</set>
 		<many-to-one name="country" class="css.training.hibernate.domain.Country" column="country_id"/>
+		<one-to-one name="passport" class="css.training.hibernate.domain.Passport">
+		</one-to-one>
 	</class>
 </hibernate-mapping>

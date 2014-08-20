@@ -9,6 +9,14 @@ public class Person {
 	private Set<Email> emails;
 	private Set<Transport> transports;
 	private Country country;
+	private Passport passport;
+	public Passport getPassport() {
+		return passport;
+	}
+
+	public void setPassport(Passport passport) {
+		this.passport = passport;
+	}
 
 	public Country getCountry() {
 		return country;

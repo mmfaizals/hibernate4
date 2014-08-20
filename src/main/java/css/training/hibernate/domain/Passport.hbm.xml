@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="css.training.hibernate.domain.Passport" table="passport">
+		<id name="id" type="java.lang.Integer">
+			<generator class="foreign">
+			 <param name="property">person</param>
+			</generator>
+		</id>
+		<property name="passportNumber" type="java.lang.String" />
+		<one-to-one name="person" class="css.training.hibernate.domain.Person"></one-to-one>
+	</class>
+</hibernate-mapping>
