@@ -18,13 +18,13 @@
 			<key column="person_id" />
 			<one-to-many class="css.training.hibernate.domain.Email" />
 		</set>
-		<set name="transports" table="person_transport">
+		<set name="transports" table="person_transport" cascade="all">
 			<key column="person_id" />
 			<many-to-many column="transport_id"
 				class="css.training.hibernate.domain.Transport"></many-to-many>
 		</set>
-		<many-to-one name="country" class="css.training.hibernate.domain.Country" column="country_id"/>
-		<one-to-one name="passport" class="css.training.hibernate.domain.Passport">
+		<many-to-one name="country" class="css.training.hibernate.domain.Country" column="country_id" cascade="save-update"/>
+		<one-to-one name="passport" class="css.training.hibernate.domain.Passport" cascade="all" >
 		</one-to-one>
 	</class>
 </hibernate-mapping>
