@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<ehcache>
+	<defaultCache maxElementsInMemory="100" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="200" />
+	<cache name="css.training.hibernate.domain.annotation.Order"
+		maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="300"
+		timeToLiveSeconds="600">
+	</cache>
+</ehcache> 
