@@ -122,3 +122,11 @@ CREATE TABLE `line_item`(
 PRIMARY KEY (id),
 FOREIGN KEY (order_id) REFERENCES `order`(id)
 ) ENGINE=INNODB CHARSET=utf8 COLLATE=utf8_bin;
+
+DELETE FROM line_item;
+DELETE FROM `order`;
+ALTER TABLE `order`   
+  ADD COLUMN `customer_id` INT  NULL,
+  ADD FOREIGN KEY (`customer_id`) REFERENCES `customer`(`id`);
+
+ 
