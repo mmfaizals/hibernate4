@@ -129,4 +129,8 @@ ALTER TABLE `order`
   ADD COLUMN `customer_id` INT  NULL,
   ADD FOREIGN KEY (`customer_id`) REFERENCES `customer`(`id`);
 
+ALTER TABLE `customer`   
+  ADD COLUMN `street` VARCHAR(255) NULL,
+  ADD COLUMN `city` VARCHAR(255) NULL ,
+  ADD COLUMN `pincode` INT NULL ;
  
